@@ -3,17 +3,20 @@
 [3, 7, 23, 12] -> 19
 [-4, -6, 89, 6] -> 0 */
 
-int[] numbers = new int[4];
+Console.WriteLine("Введите длину массива ");
+int Length = Convert.ToInt32(Console.ReadLine());
+int[] numbers = new int[Length];
 FillArray(numbers);
-WriteArray(numbers);
+PrintArray(numbers);
 
 int sum = 0;
 
-for(int i = 0; i < numbers.Length - 1; i++)
+for(int i = 0; i < numbers.Length; i++)
 {
-    if(numbers[i] % 2 != 0)
+    int ostatok = i % 2;
+    if(ostatok == 1)
     {
-        sum += numbers[i] & 10;
+        sum = sum + numbers[i];
     } 
 }
 Console.WriteLine("sum = {0}", sum );
@@ -22,15 +25,15 @@ void FillArray(int[] array)
 {
     for(int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(1, 10);
+        array[i] = new Random().Next(1, 100);
     }
 }
 
-void WriteArray(int[] array)
+void PrintArray(int[] array1)
 {
-     for(int i = 0; i < array.Length; i++)
+     for(int i = 0; i < array1.Length; i++)
      {
-         Console.Write(array[i] + " ");
+         Console.Write(array1[i] + " ");
      }
      Console.WriteLine();
 }
